@@ -44,9 +44,39 @@ int main()
     movies.push_back(Genre("Kung Fu Panda", "Comedy"));
     movies.push_back(Genre("Zootopia", "Comedy"));
 
+    int genreChoice;
+    cout << "Select a genre:\n";
+    cout << "1. Action\n2. Romance\n3. Sci-Fi\n4. Comedy\n";
+    cout << "Enter option (1-4): ";
+    cin >> genreChoice;
+
+    string selectedGenre;
+    switch (genreChoice)
+    {
+    case 1:
+        selectedGenre = "Action";
+        break;
+    case 2:
+        selectedGenre = "Romance";
+        break;
+    case 3:
+        selectedGenre = "Sci-Fi";
+        break;
+    case 4:
+        selectedGenre = "Comedy";
+        break;
+    default:
+        cout << "Invalid genre choice." << endl;
+        return 0;
+    }
+
+    cout << "\nRecommended " << selectedGenre << " movies:\n";
     for (auto &m : movies)
     {
-        m.display();
+        if (m.getGenre() == selectedGenre)
+        {
+            m.display();
+        }
     }
 
     return 0;
