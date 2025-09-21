@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Movie
@@ -31,7 +32,22 @@ public:
 
 int main()
 {
-    Genre m("Titanic", "Romance");
-    m.display();
+
+    // added some movies with genres (initial movies data)
+    vector<Genre> movies;
+    movies.push_back(Genre("Avengers: Endgame", "Action"));
+    movies.push_back(Genre("The Dark Knight", "Action"));
+    movies.push_back(Genre("Titanic", "Romance"));
+    movies.push_back(Genre("La La Land", "Romance"));
+    movies.push_back(Genre("Interstellar", "Sci-Fi"));
+    movies.push_back(Genre("Inception", "Sci-Fi"));
+    movies.push_back(Genre("Kung Fu Panda", "Comedy"));
+    movies.push_back(Genre("Zootopia", "Comedy"));
+
+    for (auto &m : movies)
+    {
+        m.display();
+    }
+
     return 0;
 }
