@@ -62,16 +62,32 @@ int main()
         cout << "3. List all movies" << endl;
         cout << "4. Exit" << endl;
         cout << "Enter option (1-4): ";
-        cin >> choice;
+
+        if (!(cin >> choice))
+        {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid input! Please enter a number between 1 and 4.\n"
+                 << endl;
+            continue;
+        }
         cin.ignore();
 
         if (choice == 1)
         {
             int genreChoice;
-            cout << "Select a genre:\n";
+            cout << "\nSelect a genre:\n";
             cout << "1. Action\n2. Romance\n3. Sci-Fi\n4. Comedy\n";
             cout << "Enter option (1-4): ";
-            cin >> genreChoice;
+
+            if (!(cin >> genreChoice))
+            {
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout << "Invalid input! Please enter a number between 1 and 4.\n"
+                     << endl;
+                continue;
+            }
 
             string selectedGenre;
             switch (genreChoice)
@@ -142,7 +158,7 @@ int main()
         }
         else
         {
-            cout << "Invalid option. Only option 1 to 3" << endl;
+            cout << "Invalid option. Only option 1 to 4" << endl;
         }
     }
     return 0;
