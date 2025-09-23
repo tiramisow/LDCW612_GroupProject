@@ -59,8 +59,9 @@ int main()
         cout << "Please choose an option:" << endl;
         cout << "1. Get recommendations by genre" << endl;
         cout << "2. Search a movie and find its genre" << endl;
-        cout << "3. Exit" << endl;
-        cout << "Enter option (1 or 2): ";
+        cout << "3. List all movies" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter option (1-4): ";
         cin >> choice;
         cin.ignore();
 
@@ -100,6 +101,7 @@ int main()
                     m.display();
                 }
             }
+            cout << endl;
         }
         else if (choice == 2)
         {
@@ -122,8 +124,18 @@ int main()
             {
                 cout << "Sorry, movie not found in database." << endl;
             }
+            cout << endl;
         }
         else if (choice == 3)
+        {
+            cout << "\nAll Available Movies:\n";
+            for (auto &m : movies)
+            {
+                m.display();
+            }
+            cout << endl;
+        }
+        else if (choice == 4)
         {
             cout << "Exiting Program. Goodbye!" << endl;
             break; // exit loop
